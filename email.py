@@ -1,4 +1,4 @@
-def fetch_latest_email():
+def fetchemail():
     return "Hi"
 
 
@@ -14,16 +14,16 @@ def reviewer(draft):
     return draft
 
 
-def send_email(toaddr, subject, body):
+def sendemail(toaddr, subject, body):
     print("sending email")
     print(toaddr)
     print(subject)
     print(body)
 
 
-def run_workflow():
+def runworkflow():
 
-    rawemail = fetch_latest_email()
+    rawemail = fetchemail()
     print(rawemail)
 
     summary = reader(rawemail)
@@ -45,4 +45,4 @@ def run_workflow():
 
 
 if __name__ == "__main__":
-    run_workflow()
+    runworkflow()
