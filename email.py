@@ -17,7 +17,7 @@ def reader(email):
 def responder(email, summary):
     with open("responses.json", "r") as f:
         responses = json.load(f)
-    if delayed in summary:
+    if "delayed" in summary:
         return responses["delayed"]
     elif "going well" in summary:
         return responses["going well"]
