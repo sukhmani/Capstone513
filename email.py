@@ -15,7 +15,15 @@ def reader(email):
 
 
 def responder(email, summary):
-    return "projectn"
+    with open("responses.json", "r") as f:
+        responses = json.load(f)
+    if delayed in summary:
+        return responses["delayed"]
+    elif "going well" in summary:
+        return responses["going well"]
+    elif "on track" in summary:
+        return responses["on track"]
+    return responses["default"]
 
 
 def reviewer(draft):
