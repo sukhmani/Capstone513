@@ -1,8 +1,16 @@
+import random
+import json
+
 def fetchemail():
-    return "Hi"
+    with open("emails.json", "r") as f:
+        emails = json.load(f)
+    return random.choice(emails)
 
 
 def reader(email):
+
+    if "update" in email:
+        return "update"
     return " update"
 
 
