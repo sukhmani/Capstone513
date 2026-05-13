@@ -29,6 +29,12 @@ def responder(email, summary):
 def reviewer(draft):
     return draft
 
+def mem(email, response):
+    with open("history.json", "r") as f:
+        history = json.load(f)
+    history.append({"email": email, "response": response})
+    with open("history.json", "w") as f:
+        json.dump(history, f)
 
 def sendemail(toaddr, subject, body):
     print("sending email")
@@ -55,6 +61,7 @@ def runworkflow():
 
     if choice == "y":
         sendemail("sukhmani@gmail.com", "re: update", reviewed)
+        mem(rawemail, reviewed)
         print("done")
     else:
         print("not sent")
